@@ -1,6 +1,6 @@
 import './App.css';
 import Navigation from './components/NavBar';
-import Items from './components/ItemListContainer';
+import ItemListContainer from './components/ItemListContainer';
 import React from 'react';
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
       <div className="App">
         <Navigation />
         <header className='App-header'>
-          <Items greeting={msj} />
+          <ItemListContainer greeting={msj} />
         </header>
       </div>
     </>
