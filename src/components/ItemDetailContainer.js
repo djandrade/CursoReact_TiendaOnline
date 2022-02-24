@@ -1,31 +1,29 @@
 import { useEffect, useState } from 'react';
 import Products from './mocks';
 import { ItemDetail } from './ItemDetail';
+import { useParams } from 'react-router-dom';
 
-const ItemDetailContainer = ({positionItem}) =>{
+export const ItemDetailContainer = () =>{
+    const {id} = useParams();
     const [item, setItem] = useState([]);
-
+    
     useEffect(()=>{
+
         const getItems = async() =>{
-            const response = setTimeout(() =>{
-                setItem(Products[positionItem])
-            },2000)
-    
-            response.then(result =>{
-                return result;
-            })
+            const response = await Products[id];
+            setTimeout(() =>{
+                setItem(response);
+            },2000) 
         }
-        
-        getItems();
-    },[positionItem])
-    
+
+        getItems()
+    },[id]) 
+
     return(
         <>
-            <div className="row">
+            <div >
                 <ItemDetail item={item} />
             </div>
         </>
     )
 } 
-
-export default ItemDetailContainer;

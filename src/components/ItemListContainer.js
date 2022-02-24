@@ -1,17 +1,29 @@
 import { React, useEffect, useState } from 'react';
-import ItemCount from './ItemCount';
-import ItemList from './ItemList';
+import { ItemList } from './ItemList';
 import Products from './mocks';
-import ItemDetailContainer from './ItemDetailContainer';
+import { useParams } from 'react-router-dom';
 
-const ItemListContainer = (props) =>{
+export const ItemListContainer = () =>{
+    const {id} = useParams();
     const [items, setItems] = useState([]);
+
+    function filterProducts(item)
+    {
+        return item.categoryId === id;
+    }
 
     useEffect(()=>{
 
         const promiseResult = new Promise((resolve, reject) => {
             setTimeout(() =>{
-                resolve(Products)
+                if(typeof id === 'undefined')
+                {
+                    resolve(Products);
+                }
+                else{
+                    const productsFilter = Products.filter(filterProducts);
+                    resolve(productsFilter);
+                }
             },2000)
         })
 
@@ -19,21 +31,16 @@ const ItemListContainer = (props) =>{
             setItems(result);
         })
     })
-    
+
     return (
         <>
             <header>
-                <h1>Bienvenidos {props.greeting}</h1>
+                <h1>Bienvenidos a su tienda un millon de ilusiones...!</h1>
             </header>
+            <br />
             <div className="container">
-                <ItemCount stock="5" initial="1" />
-                <br/>
                 <ItemList items={items} />
-                <br />
-                <ItemDetailContainer positionItem={0}/>
             </div>
         </>   
     )
-} 
-
-export default ItemListContainer;
+}

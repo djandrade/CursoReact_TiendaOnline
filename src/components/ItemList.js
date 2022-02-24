@@ -1,18 +1,17 @@
 import React from "react";
+import { Row } from "react-bootstrap";
 import { Item } from "./Item";
 
-const ItemList = ({ items }) =>{
+export const ItemList = ({items}) =>{
     return(
         <>
-            <div className="row">
+            <Row xs={1} md={3} className="g-4">
                 {
                    items.map(item =>
-                        <Item key={item.id} name={item.name} description={item.description} price={item.price} pictureUrl={item.pictureUrl}  />
+                        <Item key={item.id} name={item.name} price={item.price} pictureUrl={item.pictureUrl}  />
                    ) 
                 }
-            </div>
+            </Row>
         </>
     )
 }
-
-export default ItemList;

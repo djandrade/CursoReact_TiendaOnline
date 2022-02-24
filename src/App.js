@@ -1,20 +1,22 @@
 import './App.css';
-import Navigation from './components/NavBar';
-import ItemListContainer from './components/ItemListContainer';
 import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Home } from './components/home/Home';
+import Navigation from './components/NavBar';
+import { ItemDetailContainer } from './components/ItemDetailContainer';
+import { ItemListContainer } from './components/ItemListContainer';
 
 function App() {
-  const msj = "a su tienda un millon de ilusiones...!";
+  
   return (
-    <>
-      <div className="App">
-        <Navigation />
-        <header className='App-header'>
-          <ItemListContainer greeting={msj} />
-        </header>
-      </div>
-    </>
-    
+      <BrowserRouter>
+          <Navigation />
+          <Routes>
+            <Route path="/" element={<Home/>}></Route>
+            <Route path="/category/:id" element={<ItemListContainer />}></Route>
+            <Route path="/item/:id" element={<ItemDetailContainer />}></Route>
+          </Routes>
+      </BrowserRouter>    
   );
 }
 
