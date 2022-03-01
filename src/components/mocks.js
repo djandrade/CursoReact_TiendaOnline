@@ -4,7 +4,7 @@ const products = [
         name:'Babuchas niña', 
         description: 'Babuchas niña unicornio', 
         price: '40000', 
-        pictureUrl: "BabuchasNinia.png",
+        pictureUrl: "https://i.ibb.co/K7hSNzy/Babuchas-Ninia.png",
         categoryId: "1"
     },
     { 
@@ -12,7 +12,7 @@ const products = [
         name:'Cepillo', 
         description: 'Cepillo para cabello', 
         price: '15000', 
-        pictureUrl: "~/assets/CepilloNinia.png",
+        pictureUrl: "https://i.ibb.co/8B5dLNk/Cepillo-Ninia.png",
         categoryId: "1" 
     },
     { 
@@ -20,7 +20,7 @@ const products = [
         name:'Tendido Hello Kitty', 
         description: 'Tendido para cama doble para niña de Hello Kitty', 
         price: '70000', 
-        pictureUrl: "~/assets/TendidoNinia.png",
+        pictureUrl: "https://i.ibb.co/Bn25hmN/Tendido-Ninia.png",
         categoryId: "1" 
     },
     { 
@@ -28,7 +28,7 @@ const products = [
         name:'Maleta de viaje', 
         description: 'Maleta de viaje volqueta para niño', 
         price: '200000', 
-        pictureUrl: "~/assets/TendidoNinia.png",
+        pictureUrl: "https://i.ibb.co/BcJJLkG/Maleta-Viaje.jpg",
         categoryId: "2" 
     },
     { 
@@ -36,7 +36,7 @@ const products = [
         name:'Pista de carros', 
         description: 'Pista de carros 360°', 
         price: '150000', 
-        pictureUrl: "~/assets/TendidoNinia.png",
+        pictureUrl: "https://i.ibb.co/s3BSXhx/Pista-Carros.jpg",
         categoryId: "2" 
     },
     { 
@@ -44,7 +44,7 @@ const products = [
         name:'Robot musical', 
         description: 'Robot musical con movimiento', 
         price: '70000', 
-        pictureUrl: "~/assets/TendidoNinia.png",
+        pictureUrl: "https://i.ibb.co/jg4gpHq/Robot-Musical.jpg",
         categoryId: "2" 
     }
 ]

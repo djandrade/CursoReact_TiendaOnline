@@ -10,7 +10,7 @@ export const ItemDetailContainer = () =>{
     useEffect(()=>{
 
         const getItems = async() =>{
-            const response = await Products[id];
+            const response = await Products[id-1];
             setTimeout(() =>{
                 setItem(response);
             },2000) 
@@ -21,7 +21,7 @@ export const ItemDetailContainer = () =>{
 
     return(
         <>
-            <div >
+            <div className="container">
                 <ItemDetail item={item} />
             </div>
         </>
