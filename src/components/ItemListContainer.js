@@ -37,10 +37,22 @@ export const ItemListContainer = () =>{
             <header>
                 <h1>Bienvenidos a su tienda un millon de ilusiones...!</h1>
             </header>
-            <br />
-            <div className="container">
-                <ItemList items={items} />
-            </div>
+            {
+                items.length === 0 
+                ?   <>
+                        <div className="d-flex justify-content-center">
+                            <div className="spinner-border text-primary m-5" role="status"></div>
+                        </div>
+                    </>
+                :
+                <>
+                    
+                    <br />
+                    <div className="container">
+                        <ItemList items={items} />
+                    </div>
+                </>
+            }
         </>   
     )
 }

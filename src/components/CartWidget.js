@@ -1,13 +1,22 @@
-import React from 'react';
-import {FaShoppingCart} from 'react-icons/fa'
+import React, { useContext } from 'react';
+import {FaShoppingCart} from 'react-icons/fa';
+import { CartContext } from '../context/CartContext';
 
-const CartWidget = () => {
+
+export const CartWidget = () => {
+    const cartContext = useContext(CartContext);
+    let numberItems = 0;
+
+    if(cartContext.products.length !== 0){
+        cartContext.products.forEach(element => {
+            numberItems = numberItems + element.quantity;
+        });
+    }
+
     return (
         <div>
             <FaShoppingCart style={{ color:'white' }} />
-            <span style={{ color:'white' }}> 2 </span>
+            <span style={{ color:'white' }}> {numberItems} </span>
         </div>
     );
-}
-
-export default CartWidget;
+};

@@ -24,7 +24,7 @@ export const ItemCount = ({stock, initial, onAdd}) => {
                 <button disabled={quantity === stock} onClick={handledAdd} className="btn btn-primary btn-sm" style={{marginLeft:"15px", marginTop:"10px", width:"35px"}}> + </button>
             </div>
             <div>
-                <button className="btn btn-primary btn-sm btn-block" onClick={()=>onAdd(quantity)} style={{marginLeft:"125px", marginTop:"25px", width:"160px"}}> Agregar al carrito </button>
+                <button className="btn btn-primary btn-sm btn-block" onClick={()=>onAdd(quantity)} on style={{marginLeft:"125px", marginTop:"25px", width:"160px"}}> Lo quiero!! </button>
             </div>
         </>
     );

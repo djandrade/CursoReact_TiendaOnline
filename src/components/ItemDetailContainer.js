@@ -21,9 +21,20 @@ export const ItemDetailContainer = () =>{
 
     return(
         <>
-            <div className="container">
-                <ItemDetail item={item} />
-            </div>
+            {
+                Object.keys(item).length === 0 
+                ?   <>
+                        <div className="d-flex justify-content-center">
+                            <div className="spinner-border text-primary m-5" role="status"></div>
+                        </div>
+                    </>
+                :
+                <>
+                    <div className="container">
+                        <ItemDetail item={item} />
+                    </div>
+                </>
+            }
         </>
     )
 } 

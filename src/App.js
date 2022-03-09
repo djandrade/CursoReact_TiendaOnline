@@ -6,12 +6,12 @@ import Navigation from './components/NavBar';
 import { ItemDetailContainer } from './components/ItemDetailContainer';
 import { ItemListContainer } from './components/ItemListContainer';
 import { Cart } from './components/Cart';
-import { CustomContext } from './context/CustomContext';
+import CartProvider from './context/CartContext';
 
 function App() {
   return (
     <>
-      <CustomContext>
+      <CartProvider>
         <BrowserRouter>
             <Navigation />
             <Routes>
@@ -21,7 +21,7 @@ function App() {
               <Route path="/cart" element={<Cart />}></Route>
             </Routes>
         </BrowserRouter>
-      </CustomContext>
+      </CartProvider>
     </>     
   );
 }
