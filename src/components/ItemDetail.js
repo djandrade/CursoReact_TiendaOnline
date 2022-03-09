@@ -8,7 +8,6 @@ export const ItemDetail = ({ item }) =>{
 
     const [quantity, setQuantity] = useState(0);
     const cartContext = useContext(CartContext);
-    
     const onAddDetail = (quantityToAdd) => {
         setQuantity(quantityToAdd);
     }

@@ -1,36 +1,34 @@
 import { React, useEffect, useState } from 'react';
 import { ItemList } from './ItemList';
-import Products from './mocks';
 import { useParams } from 'react-router-dom';
+import { collection, getDocs } from "firebase/firestore";
+import { db } from '../utils/fireBase';
 
 export const ItemListContainer = () =>{
     const {id} = useParams();
     const [items, setItems] = useState([]);
 
-    function filterProducts(item)
-    {
-        return item.categoryId === id;
-    }
-
     useEffect(()=>{
+        let response = [];
+        
+        const getData = async() =>{
+            
+            const query = collection(db,'products');
+            response = await getDocs(query);
+            const dataProducts = response.docs.map(doc =>{ return{id: doc.id, ...doc.data()}});
 
-        const promiseResult = new Promise((resolve, reject) => {
-            setTimeout(() =>{
-                if(typeof id === 'undefined')
-                {
-                    resolve(Products);
-                }
-                else{
-                    const productsFilter = Products.filter(filterProducts);
-                    resolve(productsFilter);
-                }
-            },2000)
-        })
+            if(typeof id === 'undefined')
+            {
+                setItems(dataProducts);
+            }
+            else{
+                const productsFilter = dataProducts.filter((p) =>p.categoryId === id);
+                setItems(productsFilter);
+            }
+        }
 
-        promiseResult.then(result =>{
-            setItems(result);
-        })
-    })
+        getData();
+    },[id]);
 
     return (
         <>

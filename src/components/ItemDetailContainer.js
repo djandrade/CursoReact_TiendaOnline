@@ -1,22 +1,23 @@
 import { useEffect, useState } from 'react';
-import Products from './mocks';
+import { doc, getDoc } from "firebase/firestore";
+import { db } from '../utils/fireBase';
 import { ItemDetail } from './ItemDetail';
 import { useParams } from 'react-router-dom';
 
 export const ItemDetailContainer = () =>{
     const {id} = useParams();
     const [item, setItem] = useState([]);
-    
-    useEffect(()=>{
 
-        const getItems = async() =>{
-            const response = await Products[id-1];
-            setTimeout(() =>{
-                setItem(response);
-            },2000) 
+    useEffect(()=>{
+        const getData = async() =>{
+            const queryDoc = doc(db,'products',id);
+            const response = await getDoc(queryDoc);
+            const dataDoc = {id:response.id, ...response.data()};    
+
+            setItem(dataDoc);
         }
 
-        getItems()
+        getData();
     },[id]) 
 
     return(

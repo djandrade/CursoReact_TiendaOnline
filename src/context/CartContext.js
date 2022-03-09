@@ -14,7 +14,6 @@ const CartProvider = ({children}) => {
         if(!isInCart(item.id)){
             setProducts([...products, newItem]);
         } else{
-            console.log("en addproduct", item);
             const productsAux = products;
             const pos = products.findIndex((item) => item.id === newItem.id);
             productsAux[pos].quantity = productsAux[pos].quantity + quantity;
