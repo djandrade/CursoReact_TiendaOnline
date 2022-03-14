@@ -9,7 +9,7 @@ export const CartDetail = ({id, name, pictureUrl, description, price, quantity }
     return (
         <>
             <Card style={{ width:"22rem"}}>
-               <Card.Img height="500px" width="450px" variant="top" src={pictureUrl} />
+               <Card.Img height="200px" width="120px" variant="top" src={pictureUrl} />
                <Card.Body>
                    <Card.Title style={{ color: "black" }}>{name}</Card.Title>
                    <Card.Subtitle className='mb-2 text-muted'>{description}</Card.Subtitle>
