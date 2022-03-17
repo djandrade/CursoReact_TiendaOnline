@@ -29,12 +29,13 @@ export const Cart = () =>{
 
         try{
             const newDoc = await addDoc(orders, order);
+            alert('Orden creada exitosamente !!!');
             console.log("Orden creada exitosamente, Order id: ", newDoc.id);
         } catch (error){
             console.log("Error", error);
         } 
-    }
-    
+    };
+
     return(
         <>
             { 
@@ -78,12 +79,12 @@ export const Cart = () =>{
                                 <Form.Control type="email" placeholder="Correo" style={{width:"90%"}}></Form.Control>
                             </Form.Group>
                             <br />
-                            <button className="btn btn-primary" type='submit'>Guardar datos</button>
+                            <button className="btn btn-primary" type='submit'>Comprar</button>
                             <hr />
                         </Form>
                         <h3 className="my-3"> Valor total: $ {calculateTotal()} </h3>
                     </div>
-                </>  
+                </> 
             } 
         </>     
     )
